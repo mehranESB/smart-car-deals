@@ -1,2 +1,5 @@
 # extra data
 DATA/
+
+# ignore running data
+__pycache__/

@@ -7,6 +7,8 @@ from selenium.common.exceptions import (
     ElementClickInterceptedException,
 )
 import time
+import arabic_reshaper
+from bidi.algorithm import get_display
 
 
 def open_chrome_and_prepare_search():
@@ -98,9 +100,5 @@ def get_car_article_links(driver, url, max_num=100, max_runtime=60):
     return list(links)
 
 
-url = "https://divar.ir/s/tehran/car?q=%D8%AA%DB%8C%D8%A8%D8%A7%202"
-driver = open_chrome_and_prepare_search()
-car_links = get_car_article_links(driver, url)
-for link in car_links:
-    print(f"- {link}")
-print(f"{len(car_links)} links found.")
+def to_persian(exp):
+    return get_display(arabic_reshaper.reshape(exp))
