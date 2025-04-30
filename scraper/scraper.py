@@ -6,7 +6,7 @@ import json
 
 
 class Scraper:
-    def __init__(self, url, name: str, max_num: int = 1000, max_runtime: int = 60):
+    def __init__(self, url: str, name: str, max_num: int = 1000, max_runtime: int = 60):
         self.driver = open_chrome_and_prepare_search()
         self.url = url
         self.name = name
@@ -58,24 +58,3 @@ class Scraper:
 
             except Exception as e:
                 print(f"❌ Failed to scrape {link}: {e}")
-
-
-if __name__ == "__main__":
-    import argparse
-
-    parser = argparse.ArgumentParser(description="Car post scraper")
-    parser.add_argument("--url", required=True, help="URL of the listing page")
-    parser.add_argument("--name", required=True, help="Project name for saving data")
-    parser.add_argument(
-        "--max_num", type=int, default=100, help="Maximum number of posts to scrape"
-    )
-    parser.add_argument(
-        "--max_runtime", type=int, default=60, help="Maximum runtime in seconds"
-    )
-
-    args = parser.parse_args()
-
-    scraper = Scraper(
-        url=args.url, name=args.name, max_num=args.max_num, max_runtime=args.max_runtime
-    )
-    scraper.scrap()
