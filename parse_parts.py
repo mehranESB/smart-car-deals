@@ -22,3 +22,7 @@ worked, year, color = scrap_car_details(driver)
 print(f"worked: {worked}")
 print(f"year: {year}")
 print(f"color: {color}")
+
+# print price
+price = scrap_base_price(driver)
+print(f"price: {price}")

@@ -67,3 +67,29 @@ def scrap_car_details(driver):
     except NoSuchElementException:
         print("Details table not found.")
         return None, None, None
+
+
+def scrap_base_price(driver):
+    try:
+        # Find all container divs
+        rows = driver.find_elements(
+            By.CSS_SELECTOR, "div.kt-base-row.kt-base-row--large.kt-unexpandable-row"
+        )
+
+        for row in rows:
+            title_elem = row.find_element(By.CSS_SELECTOR, ".kt-base-row__title")
+            if title_elem.text.strip() == "قیمت پایه":
+                value_elem = row.find_element(
+                    By.CSS_SELECTOR, ".kt-unexpandable-row__value"
+                )
+                price_text = value_elem.text.strip()
+
+                if "تومان" in price_text:
+                    price_text = price_text.replace("تومان", "").strip()
+                    return to_eng_digits(price_text)
+
+        return None  # Not found
+
+    except NoSuchElementException:
+        print("Price info not found.")
+        return None
