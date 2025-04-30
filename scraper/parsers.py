@@ -1,4 +1,4 @@
-from .utils import to_persian
+from .utils import to_persian, to_eng_digits
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 import requests
@@ -62,7 +62,7 @@ def scrap_car_details(driver):
             cols[2].text.strip(),
         )
 
-        return worked, year, to_persian(color)
+        return to_eng_digits(worked), to_eng_digits(year), to_persian(color)
 
     except NoSuchElementException:
         print("Details table not found.")

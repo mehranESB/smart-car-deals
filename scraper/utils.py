@@ -102,3 +102,20 @@ def get_car_article_links(driver, url, max_num=100, max_runtime=60):
 
 def to_persian(exp):
     return get_display(arabic_reshaper.reshape(exp))
+
+
+def to_eng_digits(text):
+    persian_digits = "۰۱۲۳۴۵۶۷۸۹"
+    english_digits = "0123456789"
+
+    translation_table = str.maketrans("".join(persian_digits), "".join(english_digits))
+    cleaned = (
+        text.translate(translation_table).replace("٬", "").replace(",", "").strip()
+    )
+
+    try:
+        num = int(cleaned)
+    except:
+        num = None
+
+    return num
