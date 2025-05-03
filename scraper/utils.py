@@ -9,6 +9,7 @@ from selenium.common.exceptions import (
 import time
 import arabic_reshaper
 from bidi.algorithm import get_display
+import os
 
 
 def open_chrome_and_prepare_search():
@@ -119,3 +120,9 @@ def to_eng_digits(text):
         num = None
 
     return num
+
+
+def save_html(html, output_path):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(html)
