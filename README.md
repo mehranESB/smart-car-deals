@@ -2,9 +2,9 @@
 
 **Smart Car Deal Finder** is a Python tool that scrapes used car listings from [**Divar.ir**](https://divar.ir/s/tehran), a popular second-hand sales website in Iran. It collects data on car prices, makes, models, and conditions, then visualizes this information for easy comparison. This interactive tool helps users find the best deals and make informed decisions when buying a used car.
 
-<iframe src="https://github.com/mehranESB/smart-car-deals/blob/main/images/clickable_plot.html" width="600" height="400"></iframe>
+![Visualization](images/interactive_plot.png)
 
-**Scatter plot visualizing used car prices:** The X-axis represents the car's kilometers driven (KM), while the Y-axis shows the price. The color map indicates the year of manufacture, with different colors corresponding to different years, helping to highlight trends between mileage, price, and age of the car.
+**Scatter plot visualizing used car prices:** The X-axis represents the car's kilometers driven (KM), while the Y-axis shows the price. The color map indicates the year of manufacture, with different colors corresponding to different years, helping to highlight trends between mileage, price, and age of the car ([download the HTML file]("https://github.com/mehranESB/smart-car-deals/blob/main/images/clickable_plot.html")).
 
 ## 🧩 Installation
 
