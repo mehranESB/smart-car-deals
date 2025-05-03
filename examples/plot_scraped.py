@@ -1,6 +1,5 @@
 from scraper.dataset import load_all_posts
 from scraper.visual import create_html_plot
-import plotly.io as pio
 
 # load all posts
 path = "./DATA/scrapeddata/tiba2_1402_02_13"
