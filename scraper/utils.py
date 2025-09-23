@@ -21,7 +21,8 @@ def open_chrome_and_prepare_search():
     )  # Helps bypass bot detection
 
     # Path to chromedriver
-    DRIVER_PATH = "C:\\Users\\Mehran\\Desktop\\github\\cars-divar-scrap\\DATA\\driver\\chromedriver-win64\\chromedriver.exe"
+    rel_path = r"..\DATA\driver\chromedriver-win64\chromedriver.exe"
+    DRIVER_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), rel_path))
     service = Service(executable_path=DRIVER_PATH)
 
     # Launch Chrome
